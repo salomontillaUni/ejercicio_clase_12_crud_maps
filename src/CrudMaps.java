@@ -39,6 +39,31 @@ public class CrudMaps {
                         }
                     }
                     break;
+                case 3 : // Actualizar
+                    System.out.print("ID del producto a actualizar: ");
+                    int idActualizar = scanner.nextInt();
+                    if (productos.containsKey(idActualizar)) {
+                        scanner.nextLine(); // limpiar buffer
+                        System.out.print("Nuevo nombre: ");
+                        String nuevoNombre = scanner.nextLine();
+                        System.out.print("Nuevo precio: ");
+                        double nuevoPrecio = scanner.nextDouble();
+                        productos.put(idActualizar, new Producto(nuevoNombre, nuevoPrecio));
+                        System.out.println(" Producto actualizado.");
+                    } else {
+                        System.out.println(" Producto no encontrado.");
+                    }
+                    break;
+                case 4:
+                    System.out.print("ID del producto a eliminar: ");
+                    int idEliminar = scanner.nextInt();
+                    if (productos.containsKey(idEliminar)) {
+                        productos.remove(idEliminar);
+                        System.out.println(" Producto eliminado.");
+                    } else {
+                        System.out.println(" Producto no encontrado.");
+                    }
+                    break;
             }
 
         } while(opcion != 0);
